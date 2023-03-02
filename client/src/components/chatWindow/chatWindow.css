@@ -1,0 +1,129 @@
+
+.chat-window {
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 35%;
+  background-color: #363636 ;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  color:white;
+}
+
+.close-window {
+
+  justify-content:flex-end;
+  color: rgb(107, 107, 107) ;
+  display: flex;
+ }
+
+
+
+.close-window-icon{
+
+  width: 25px;
+  height:auto;
+}
+
+.close-window-icon :hover{
+
+  color: rgba(255, 255, 255, 0.582) ;
+  cursor: pointer;
+}
+
+
+
+
+.chat-messages-window {
+  flex: 1;
+  /* overflow-y: scroll; */
+
+}
+
+.profile-name-image-text {
+  
+  /* background-color:orange; */
+  display:flex;
+  align-items: center;
+
+}
+
+.profile-image {
+
+  display:flex;
+  padding-right: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-pic {
+
+  width:40px;
+  height:auto;
+
+}
+
+.proile-name-text {
+
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  text-align: left; 
+  flex: 1; 
+  align-items: flex-start
+}
+
+.text-message {
+
+  text-align: left; 
+  color: rgb(167, 167, 167);
+}
+
+.proile-name > p{
+
+  padding-top: 50px;
+}
+
+.chat-input {
+
+  width:100%;
+  bottom: 0px;
+  border-top: solid 2px rgba(255, 255, 255, 0.26);
+  display:flex;
+  padding: 20px 2px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-input input {
+
+  width:100%;
+  flex: 1;
+  height: 30px;
+  padding: 0 10px;
+  color: white;
+  background-color: #3636368f;
+  border: none;
+}
+
+.chat-input button {
+
+  border: none;
+  background:transparent;
+}
+
+.send-icon {
+
+  width:20px;
+  height:auto;
+  color: rgb(107, 107, 107) ;
+}
+
+.send-icon :hover{
+  color: rgba(255, 255, 255, 0.582) ;
+  cursor: pointer;
+}
+

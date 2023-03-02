@@ -1,0 +1,23 @@
+
+1. Set up an environment:
+  - includes React, Threesjs
+  - nodejs and express for the server
+  - a database to store players data
+
+2. Create a Three.js scene (first already made 3d world): 
+  - create environemt 
+  - create character 
+  - create interactive objects 
+  - inworld to generate conversations with objects
+
+
+3. Game logic : 
+  - React components : 
+    - components that handles player input and updates the state. 
+    - functions that calculate quests based on investment and income
+
+4. set up the server 
+  
+5. connect to the database to store ame data - Redux to be used 
+
+6. authentication (if time allows)

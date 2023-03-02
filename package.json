@@ -1,0 +1,19 @@
+{
+  "name": "moneyquest",
+  "version": "1.0.0",
+  "description": "MoneyQuest investing game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarahlash92/MoneyQuest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sarahlash92/MoneyQuest/issues"
+  },
+  "homepage": "https://github.com/Sarahlash92/MoneyQuest#readme"
+}
