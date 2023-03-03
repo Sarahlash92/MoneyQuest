@@ -1,23 +1,54 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './chatWindow.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faUserCircle, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
+
+
+
 function ChatWindow(props) {
 
   const [userMessage, setUserMessage] = useState('');
+  const [characterMessage, setCharacterMessage] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (userMessage.trim()) {
-      props.addMessage(userMessage, 'user');
-      setUserMessage('');
-    }
-  };
+  useEffect (() => {
 
-  const handleClose = () => {
-    props.closeChatWindow();
-  };
+    fetch('/').then(
+      response => response.json()
+    ).then(
+      data => {
+        setCharacterMessage(data)
+      }
+    )
+
+  }, [])
+  
+  // const handleSubmit = async (event) => {
+
+  //   event.preventDefault();
+  //   if (userMessage.trim()) {
+  //     props.addMessage(userMessage, 'user');
+  //     setUserMessage('');
+
+  //   // send the msg to the server 
+  //   const response = await fetch('/', {
+  //     method: 'POST',
+  //     header: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({ message: userMessage})
+  //   });
+  //   const data = await response.json();
+  //   if (data.success){
+  //     props.addMessage(characterMessage, 'character');
+  //     setCharacterMessage('');
+  //   }
+  //   }
+  // };
+
+//   const handleClose = () => {
+//     props.closeChatWindow();
+//   };
 
 
   return (
@@ -26,19 +57,6 @@ function ChatWindow(props) {
         <div className="close-window" onClick={handleClose}>
           <FontAwesomeIcon className="close-window-icon" icon={faCircleXmark} />
         </div>
-          {/* <div className="profile-name-image-text">
-            <div className="profile-image">
-              <FontAwesomeIcon className="profile-pic" icon={faUserCircle} />
-            </div>
-            <div className="profile-name-text">
-              <div className="profile-name">
-                <p>AI</p>
-              </div>
-              <div className="text-message">
-                <p>Hello! This is the message from the AI.</p>
-              </div>
-            </div>
-          </div> */}
           {props.messages.map((message, index) => (
             
             <div key={index} className={`profile-name-image-text ${message.sender}`}>
@@ -72,5 +90,6 @@ function ChatWindow(props) {
     </div>
   );
 }
+
 
 export default ChatWindow;

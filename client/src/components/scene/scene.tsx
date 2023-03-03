@@ -20,18 +20,25 @@ function Scene(props) {
   // props.showChat()
 
   return (
-    <Canvas>
-      <OrbitControls />
-      <Stars />
-      <ambientLight intensity={0.5} />
-      <spotLight position={[10, 15, 10]} angle={0.3} />
-      <Physics>
-        <MainCharacter />
-        <Character1 openChatWindow={props.openChatWindow}/> 
-        <Plane />
-        </Physics>
-    </Canvas>
+    <div className='container'>
+      <Canvas>
+        <OrbitControls />
+        <ambientLight intensity={0.1} />
+        <directionalLight color="red" position = {[0, 0, 5]} />
+        
+        <Stars />
+        <ambientLight intensity={0.5} />
+        {/* <spotLight position={[10, 15, 10]} angle={0.3} /> */}
+        <Physics>
+          <MainCharacter />
+          {/* <Character1 openChatWindow={props.openChatWindow}/>  */}
+          {/* <Plane /> */}
+          </Physics>
+      </Canvas>
+    </div>
   );
 }
 
 export default Scene;
+
+

@@ -1,4 +1,6 @@
 import {useBox} from '@react-three/cannon';
+import { Mesh } from 'three';
+import { useCallback } from 'react';
 
 function Character1(props) {
 
