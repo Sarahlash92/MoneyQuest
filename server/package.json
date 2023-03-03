@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@inworld/nodejs-sdk": "^1.0.2",
     "express": "^4.18.2",
-    "nodemon": "^2.0.21"
+    "moongose": "^1.0.0",
+    "nodemon": "^2.0.21",
+    "socketio": "^1.0.0"
   }
 }
