@@ -8,7 +8,7 @@ const Character2 = () => {
 
 
   const model = useLoader(GLTFLoader, 'models/Characters/Mech_BarbaraTheBee.gltf');
-  console.log(model);
+  // console.log(model);
   const { actions } = useAnimations(model.animations, model.scene)
 
   // to scale the character 

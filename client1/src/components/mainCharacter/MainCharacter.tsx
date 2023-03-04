@@ -23,7 +23,6 @@ const directionOffset = ({forward , backward, left, right} : { forward: any, bac
     } else if (right) {
       directionOffset = -Math.PI /4 ; 
     } 
-
   } else if (backward) {
     if (left) {
       directionOffset = Math.PI /4 + Math.PI /2 ;
