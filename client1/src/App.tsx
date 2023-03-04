@@ -3,8 +3,10 @@ import { Canvas } from '@react-three/fiber';
 import AnimatedBox from './components/AnimatedBox';
 import './App.css';
 import { OrbitControls, Stats } from '@react-three/drei/core';
-import Rover_1 from './components/scene/Rover_1'
-
+import Trees from './components/scene/Tree_1'
+import Trees2 from './components/scene/Tree_2';
+import Trees3 from './components/scene/Tree_3';
+import Trees4 from './components/scene/Tree_4';
 
 function App() {
 
@@ -14,7 +16,7 @@ function App() {
   return (
 
     <div className="container">
-      <Canvas>
+      <Canvas shadows >
 
         {/* to show framerate on the side  */}
         {testing ? <Stats/> : null}
@@ -30,10 +32,14 @@ function App() {
         {/* to orbit around in the scene  */}
         <OrbitControls /> 
         
-        <Rover_1 />
+        <Trees boundary = {50} count= {6}/>
+        <Trees2 boundary = {50} count= {8}/>
+        <Trees3 boundary = {50} count= {4}/>
+        <Trees4 boundary = {50} count= {8}/>
+
         <ambientLight intensity={0.1} />
         <directionalLight position= {[0, 0, 5]} />
-        <AnimatedBox />
+        {/* <AnimatedBox /> */}
       </Canvas>
 
     </div>

@@ -12,7 +12,6 @@ const AnimatedBox = () => {
   // useHelper( meshRef, BoxHelper, "blue");
 
   useFrame(() => {
-    console.log('hi');
     if (meshRef.current) {
       meshRef.current.rotation.x += 0.01;
     }
