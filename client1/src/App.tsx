@@ -3,8 +3,11 @@ import { Canvas } from '@react-three/fiber';
 import AnimatedBox from './components/AnimatedBox';
 import './App.css';
 import { OrbitControls, Stats } from '@react-three/drei/core';
+import Rover_1 from './components/scene/Rover_1'
+
 
 function App() {
+
 
   const testing = true;
 
@@ -23,13 +26,13 @@ function App() {
         {/* this one is to apply grid on the ground  */}
         {testing ? <gridHelper args = {[10, 10]} /> : null}
        
-
         
         {/* to orbit around in the scene  */}
         <OrbitControls /> 
-
+        
+        <Rover_1 />
         <ambientLight intensity={0.1} />
-        <directionalLight color= "red" position= {[0, 0, 5]} />
+        <directionalLight position= {[0, 0, 5]} />
         <AnimatedBox />
       </Canvas>
 
