@@ -121,7 +121,7 @@ const Trees4: React.FC<props> = ( {boundary, count} ) => {
     index: number,
     tree: any,
     trees: any[]) => {
-      console.log(tree.position);
+      // console.log(tree.position);
       const minTargetX = tree.position.x - tree.box /2; 
       const maxTargetX = tree.position.x + tree.box /2; 
       const minTargetZ = tree.position.z - tree.box /2; 
@@ -143,7 +143,7 @@ const Trees4: React.FC<props> = ( {boundary, count} ) => {
             maxChildX,
           )
         )   {
-        console.log('contect overlapping', tree.position);
+        // console.log('contect overlapping', tree.position);
         return true;
       }
     }
@@ -178,7 +178,7 @@ const Trees4: React.FC<props> = ( {boundary, count} ) => {
     for (let i=0; i < count ; i++) {
       TempTrees.push({position: { x:0, z:0 }, box:1 })
     }
-    console.log(TempTrees);
+    // console.log(TempTrees);
     updatePosition(TempTrees, boundary);
   }, [boundary, count])
 

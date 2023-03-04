@@ -4,55 +4,7 @@ import { useEffect, useMemo } from 'react';
 import { useState } from 'react';
 
 
-const scene_array = [ 
-'/models/Environment/Base_Large.gltf',
-'/models/Environment/Building_L.gltf',
-'/models/Environment/Bush_1.gltf',
-'/models/Environment/Bush_2.gltf',
-'/models/Environment/Bush_3.gltf',
-'/models/Environment/Connector.gltf',
-'/models/Environment/GeodesicDome.gltf',
-'/models/Environment/Grass_1.gltf',
-'/models/Environment/Grass_2.gltf',
-'/models/Environment/Grass_3.gltf',
-'/models/Environment/House_Cylinder.gltf',
-'/models/Environment/House_Long.gltf',
-'/models/Environment/House_Open.gltf',
-'/models/Environment/House_OpenBack.gltf',
-'/models/Environment/House_Single_Support.gltf',
-'/models/Environment/House_Single.gltf',
-'/models/Environment/MetalSupport.gltf',
-'/models/Environment/Planet_1.gltf',
-'/models/Environment/Planet_2.gltf',
-'/models/Environment/Planet_3.gltf',
-'/models/Environment/Planet_4.gltf',
-'/models/Environment/Planet_5.gltf',
-'/models/Environment/Planet_6.gltf',
-'/models/Environment/Planet_7.gltf',
-'/models/Environment/Planet_8.gltf',
-'/models/Environment/Planet_9.gltf',
-'/models/Environment/Planet_10.gltf',
-'/models/Environment/Planet_11.gltf',
-'/models/Environment/Plant_2.gltf',
-'/models/Environment/Plant_3.gltf',
-'/models/Environment/Ramp.gltf',
-'/models/Environment/Rock_1.gltf',
-'/models/Environment/Rock_2.gltf',
-'/models/Environment/Rock_3.gltf',
-'/models/Environment/Rock_4.gltf',
-'/models/Environment/Rock_Large_1.gltf',
-'/models/Environment/Rock_Large_2.gltf',
-'/models/Environment/Rock_Large_3.gltf',
-'/models/Environment/Roof_Antenna.gltf',
-'/models/Environment/Roof_Opening.gltf',
-'/models/Environment/Roof_Radar.gltf',
-'/models/Environment/Roof_VentL.gltf',
-'/models/Environment/Roof_VentR.gltf',
-'/models/Environment/SolarPanel_Ground.gltf',
-'/models/Environment/SolarPanel_Roof.gltf',
-'/models/Environment/SolarPanel_Structure.gltf',
-'/models/Environment/Stairs.gltf',
-,
+const scene_array = [
 '/models/Environment/Tree_Blob_2.gltf',
 '/models/Environment/Tree_Blob_3.gltf',
 '/models/Environment/Tree_Floating_1.gltf',
@@ -75,6 +27,7 @@ type treeType = {
 
   position : {x: number, z:number};
   box: number;
+  link : string
 }
 
 type props = {
@@ -83,7 +36,20 @@ type props = {
 };
 
 const Trees: React.FC<props> = ( {boundary, count} ) => {
-  const model = useLoader(GLTFLoader, '/models/Environment/Tree_Blob_1.gltf');
+  
+  const link = useMemo(() => {
+    const index = Math.floor(Math.random() * scene_array.length);
+    return scene_array[index];
+  }, []);
+
+  // const model = useLoader(GLTFLoader, '/models/Environment/Tree_Blob_1.gltf');
+  
+  //trying to generate different models 
+
+  const model = useLoader(GLTFLoader, link);
+  
+  
+  
   const [trees, setTrees] = useState<treeType[]>([]);
 
 
@@ -121,7 +87,7 @@ const Trees: React.FC<props> = ( {boundary, count} ) => {
     index: number,
     tree: any,
     trees: any[]) => {
-      console.log(tree.position);
+      // console.log(tree.position);
       const minTargetX = tree.position.x - tree.box /2; 
       const maxTargetX = tree.position.x + tree.box /2; 
       const minTargetZ = tree.position.z - tree.box /2; 
@@ -143,7 +109,7 @@ const Trees: React.FC<props> = ( {boundary, count} ) => {
             maxChildX,
           )
         )   {
-        console.log('contect overlapping', tree.position);
+        // console.log('contect overlapping', tree.position);
         return true;
       }
     }
@@ -164,6 +130,7 @@ const Trees: React.FC<props> = ( {boundary, count} ) => {
       do {
       tree.position.x = newPosition(tree.box, boundary);
       tree.position.z = newPosition(tree.box, boundary);
+      
     } while (isOverlapping(index, tree, treeArray))
     });
 
@@ -176,9 +143,9 @@ const Trees: React.FC<props> = ( {boundary, count} ) => {
     
     const TempTrees : treeType[] = [];
     for (let i=0; i < count ; i++) {
-      TempTrees.push({position: { x:0, z:0 }, box:1 })
+      TempTrees.push({position: { x:0, z:0 }, box:1 , link:''})
     }
-    console.log(TempTrees);
+    // console.log(TempTrees);
     updatePosition(TempTrees, boundary);
   }, [boundary, count])
 
@@ -193,7 +160,6 @@ const Trees: React.FC<props> = ( {boundary, count} ) => {
               <boxGeometry/>
               <meshBasicMaterial color = {'blue'} wireframe/>
             </mesh>
-            
             <primitive object={model.scene.clone()} />
           </object3D>
         )

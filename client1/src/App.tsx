@@ -7,6 +7,7 @@ import Trees from './components/scene/Tree_1'
 import Trees2 from './components/scene/Tree_2';
 import Trees3 from './components/scene/Tree_3';
 import Trees4 from './components/scene/Tree_4';
+import MainCharacter from './components/mainCharacter/MainCharacter'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
         <Trees3 boundary = {50} count= {4}/>
         <Trees4 boundary = {50} count= {8}/>
 
+        <MainCharacter />
         <ambientLight intensity={0.1} />
         <directionalLight position= {[0, 0, 5]} />
         {/* <AnimatedBox /> */}
