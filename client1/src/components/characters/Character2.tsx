@@ -4,27 +4,31 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useAnimations } from '@react-three/drei';
 
   
-const MainCharacter = () => {
+const Character2 = () => {
 
-  const model = useLoader(GLTFLoader, 'models/Characters/Astronaut_FernandoTheFlamingo.gltf');
-  // console.log(model);
+
+  const model = useLoader(GLTFLoader, 'models/Characters/Mech_BarbaraTheBee.gltf');
+  console.log(model);
   const { actions } = useAnimations(model.animations, model.scene)
 
   // to scale the character 
-  model.scene.scale.set(0.3, 0.3, 0.3 );
-  
+  model.scene.scale.set(0.5, 0.5, 0.5 );
+
+
+
   model.scene.traverse((object) => {
       object.castShadow = true;
   })
   
   
-  
   useEffect(() => {
-    actions?.Walk?.play();
+    actions?.Dance?.play();
   })
   return (
-    <primitive object={model.scene} /> 
+    <object3D position = {[-8 , 0 , 2 ]} >
+      <primitive object={model.scene} /> 
+    </object3D>
   )
 };
 
-export default MainCharacter;
+export default Character2;
