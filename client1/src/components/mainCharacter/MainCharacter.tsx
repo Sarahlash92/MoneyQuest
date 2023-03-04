@@ -1,7 +1,7 @@
 import { useLoader} from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { useAnimations} from '@react-three/drei';
+import { useAnimations , OrthographicCamera} from '@react-three/drei';
 import { useInput } from '../../hooks/useInput'
 import { useThree } from '@react-three/fiber'
 import { useFrame } from '@react-three/fiber';
@@ -68,11 +68,12 @@ const MainCharacter = () => {
 
     //update camera target 
     cameraTarget.x = model.scene.position.x;
-    cameraTarget.y = model.scene.position.y + 2;
+    cameraTarget.y = model.scene.position.y + 4;
     cameraTarget.z = model.scene.position.z;
     if (controlsRef.current) controlsRef.current.taget = cameraTarget;
 
   }
+
   useEffect(() => {
 
     let action = '';
@@ -92,6 +93,7 @@ const MainCharacter = () => {
     // console.log('left', left);
     // console.log('right', right);
     // console.log('jump', jump);
+
     if (currentAction.current != action) {
       const nextActionToPlay = actions[action];
       const current = actions[currentAction.current];
@@ -135,7 +137,7 @@ const MainCharacter = () => {
       walkDirection.applyAxisAngle(rotateAngle, newDirectionOffset);
     
     // walk 
-    const velocity = 5;
+    const velocity = 3;
 
     const moveX = walkDirection.x * velocity * delta;
     const moveZ = walkDirection.z * velocity * delta;
@@ -148,8 +150,12 @@ const MainCharacter = () => {
 
   return (
     <>
-      <OrbitControls ref={controlsRef} position={[0, 0, 5]} />
+      {/* <OrthographicCamera > */}
+
+        <OrbitControls ref={controlsRef} position={[0, 0, 5]} />
         <primitive object={model.scene} rotation = {[0,0,0]} /> 
+
+      {/* </OrthographicCamera> */}
 
     </>
   )

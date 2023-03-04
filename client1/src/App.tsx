@@ -10,9 +10,12 @@ import Trees4 from './components/scene/Tree_4';
 import MainCharacter from './components/mainCharacter/MainCharacter'
 import Character1 from './components/characters/Character1';
 import Character2 from './components/characters/Character2';
+import SkyBox from './components/scene/skybox';
+import Plane from './components/scene/plane';
+
+
 
 function App() {
-
 
   const testing = true;
 
@@ -35,16 +38,19 @@ function App() {
         {/* to orbit around in the scene  */}
         <OrbitControls /> 
         
-        <Trees boundary = {50} count= {6}/>
-        <Trees2 boundary = {50} count= {8}/>
-        <Trees3 boundary = {50} count= {4}/>
-        <Trees4 boundary = {50} count= {8}/>
+        <Trees boundary = {200} count= {40}/>
+        <Trees2 boundary = {200} count= {80}/>
+        <Trees3 boundary = {200} count= {60}/>
+        <Trees4 boundary = {200} count= {84}/>
 
         <MainCharacter />
         <Character1 />
         <Character2 />
-        <ambientLight intensity={0.1} />
-        <directionalLight position= {[0, 0, 5]} />
+        <ambientLight intensity={0.5} />
+        <directionalLight position= {[0, 10, 0]} intensity ={5} />
+        <Plane />
+        <SkyBox />
+ 
         {/* <AnimatedBox /> */}
       </Canvas>
 
