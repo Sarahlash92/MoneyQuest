@@ -48,8 +48,6 @@ const Trees: React.FC<props> = ( {boundary, count} ) => {
 
   const model = useLoader(GLTFLoader, link);
   
-  
-  
   const [trees, setTrees] = useState<treeType[]>([]);
 
 
