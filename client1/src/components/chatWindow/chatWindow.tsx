@@ -1,61 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import './chatWindow.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faUserCircle, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-
-function ChatWindow(props: any) {
 
 
-  const [userMessage, setUserMessage] = useState('');
+import Form from './form';
+import Head from './chathead'
+import Messages from './messeges';
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    if (userMessage.trim()) {
-      props.addMessage(userMessage, 'user');
-      setUserMessage('');
-    }
-  };
-  const handleClose = () => {
-    props.closeChatWindow();
-  };
+
+function ChatWindow() {
+  
+  const [message, setMessages] = useState([]);
+  
 
   return (
-    <div className="chat-window">
-      <div className="chat-messages-window">
-        <div className="close-window" onClick={handleClose}>
-          <FontAwesomeIcon className="close-window-icon" icon={faCircleXmark} />
-        </div>
-        {props.messages.map((message: any, index: any) => (
-          <div key={index} className={`profile-name-image-text ${message.sender}`}>
-            <div className="profile-image">
-              <FontAwesomeIcon className="profile-pic" icon={faUserCircle} />
-            </div>
-            <div className="profile-name-text">
-              <div className="profile-name">
-                <p>{message.sender}</p>
-              </div>
-              <div className="text-message">
-                <p>{message.text}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="chat-input">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Type your message here"
-            value={userMessage}
-            onChange={(event) => setUserMessage(event.target.value)}
-          />
-          <button>
-            <FontAwesomeIcon className="send-icon" icon={faPaperPlane} />
-          </button>
-        </form>
-      </div>
+    
+    <div className ="bg-[#2F343C] rounded-3xl p-12">
+      
+      <Head />
+      <div className='w-full h-[1px] my-8 bg-[#4F5361]'/>
+      <Messages messages={message}/>
+      <div className='w-full h-[1px] my-8 bg-[#4F5361]'/>
+      <Form  setMessages={setMessages}/> 
+
     </div>
-  );
+  )
 }
 
-export default ChatWindow;
+export default ChatWindow

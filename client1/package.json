@@ -16,6 +16,8 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/three": "^0.149.0",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -46,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.7"
   }
 }
