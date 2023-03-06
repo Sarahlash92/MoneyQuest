@@ -22,7 +22,7 @@ const ChatWindow = (props:any) => {
 
   return (
     
-    <div className ="h-[32rem] bg-[#2F343C] rounded-1xl p-2 shadow-lg w-1/4 opacity-90">
+    <div className ="h-[32rem] w-full bg-[#2F343C] rounded-1xl p-2 shadow-lg w-1/4 opacity-90">
     <div className='flex justify-end items-center'>
       <button onClick= {props.closeChatWindow} className='bg-white hover:opacity-50 active:opacite-100 transition-colors p-0 rounded-full'>
         <CloseIconX className ='w-10 h-10 fill-white m-0 p-0'/>

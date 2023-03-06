@@ -26,13 +26,14 @@ function App() {
       
       */}
       <div className='absolute w-full h-height z-10'>
-      <Scene />
+      <Scene openChatWindow={openChatWindow}/>
       </div>
-      <div className='absolute w-full h-height right-0 top-0 z-20 opacity-90'>
-      <ChatWindow />
-      
+
+      {showChat &&  <div className='absolute w-1/4 h-height right-0 top-0 z-20 opacity-90'>
+      <ChatWindow closeChatWindow={closeChatWindow} /> </div>}
+    
       {/* <ChatWindow /> */}
-      </div>
+      
       {/* {showChat && (
       <ChatWindow closeChatWindow={closeChatWindow} />
             )} */}

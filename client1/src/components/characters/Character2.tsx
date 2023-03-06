@@ -15,11 +15,6 @@ const Character2 = () => {
   model.scene.scale.set(0.5, 0.5, 0.5 );
 
 
-
-  model.scene.traverse((object) => {
-      object.castShadow = true;
-  })
-  
   
   useEffect(() => {
     actions?.Dance?.play();

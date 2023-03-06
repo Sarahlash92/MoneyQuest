@@ -6,8 +6,8 @@ import * as THREE from 'three';
   
 const Character1 = (props:any) => {
 
-  console.log("this is the props" + JSON.stringify(props))
-
+  const [hovered, setHovered] = useState(false);
+  
     const handleClick = () => {
     props.openChatWindow();
   }
@@ -22,35 +22,49 @@ const Character1 = (props:any) => {
 
   // to scale the character 
   model.scene.scale.set(0.5, 0.5, 0.5 );
-
-
-  model.scene.traverse((object) => {
-      object.castShadow = true;
-  })
-  
   
   useEffect(() => {
     actions?.Walk?.play();
   }, [actions]);
 
-  useFrame((state, delta) => {
-    setXPos((prevXPos) => {
+  const handlePointerOver = (event: React.PointerEvent<THREE.Mesh>) => {
+    setHovered(true);
+    document.body.style.cursor = 'pointer';
+  }
 
-      const newXPos = prevXPos + direction.current * delta * 2;
+  const handlePointerOut = (event: React.PointerEvent<THREE.Mesh>) => {
+    setHovered(false);
+    document.body.style.cursor = 'auto';
+  }
+
+// add walking animation 
+  // useFrame((state, delta) => {
+  //   setXPos((prevXPos) => {
+
+  //     const newXPos = prevXPos + direction.current * delta * 2;
       
-      if (newXPos > 7 || newXPos < 3){
-        direction.current = -direction.current;
-      }
-      return newXPos;
-    });
-  });
+  //     if (newXPos > 7 || newXPos < 3){
+  //       direction.current = -direction.current;
+  //     }
+  //     return newXPos;
+  //   });
+  // });
 
-  return (
-    <mesh ref = {meshRef} onClick= {handleClick}>
-      <object3D position = {[ 5, 0 , xPos ]} >
+  return(
+    
+    <mesh
+    {...props}
+    ref={meshRef}
+    onPointerOver={handlePointerOver}
+    onPointerOut={handlePointerOut}
+    onClick={handleClick}
+  >
+
+      <object3D rotation = {[0, -Math.PI , 0]} position = {[ 5, 0 , xPos ]} >
         <primitive object={model.scene} /> 
       </object3D>
     </mesh>
+    // </div>
   )
 };
 

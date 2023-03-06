@@ -13,7 +13,8 @@ import Plane from './plane';
 
 
 
-function Scene() {
+function Scene(props:any) {
+
 
   const testing = true;
 
@@ -42,7 +43,7 @@ function Scene() {
         <Trees4 boundary = {200} count= {84}/>
 
         <MainCharacter />
-        <Character1 />
+        <Character1 openChatWindow={props.openChatWindow}/>
         <Character2 />
         <ambientLight intensity={0.5} />
         <directionalLight position= {[0, 10, 0]} intensity ={5} />

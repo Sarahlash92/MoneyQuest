@@ -57,8 +57,12 @@ app.post('/message', async (req, res) => {
     .setScene(process.env.INWORLD_SCENE)
     .setOnError((err) => console.error(err))
     .setOnMessage((msg) => {
+
       if (msg.text){
-        // console.log(msg.text.text);
+        console.log("this msg " , msg.text.text)
+        // res.status(200).json({
+        //   message: msg.text.final
+        // })
         // this.message : msg.text.text;
       }
       // client.generateSessionToken();
@@ -69,11 +73,13 @@ app.post('/message', async (req, res) => {
       // }
     });
 
+
   const connection = client.build();
 
-  const response = await connection.sendText('message');
+  const response = await connection.sendText(message);
 
-  console.log('what is happeongfdgfgldfg' + response.text.text)
+
+  console.log(response)
 
   //   res.status(200).json({
   //    message: response.text.text
