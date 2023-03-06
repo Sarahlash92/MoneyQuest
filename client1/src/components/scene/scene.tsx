@@ -13,13 +13,13 @@ import Plane from './plane';
 
 
 
-function Scene(props:any) {
+function Scene() {
 
   const testing = true;
 
   return (
 
-    <div className="container">
+    <div className='container'>
       <Canvas shadows >
 
         {/* to show framerate on the side  */}
@@ -42,7 +42,7 @@ function Scene(props:any) {
         <Trees4 boundary = {200} count= {84}/>
 
         <MainCharacter />
-        <Character1 openChatWindow={props.openChatWindow}/>
+        <Character1 />
         <Character2 />
         <ambientLight intensity={0.5} />
         <directionalLight position= {[0, 10, 0]} intensity ={5} />

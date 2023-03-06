@@ -36,7 +36,7 @@ return (
       <Message key={index} {...message} /> 
     ) ) : 
     <div className='flex items-center justify-center h-full'>
-      <p className='text-white'> don't be shy ask away ! </p>
+      <p className='text-white items-center'> Hello there, welcome ... ! </p>
     </div>}
     </div>
     )

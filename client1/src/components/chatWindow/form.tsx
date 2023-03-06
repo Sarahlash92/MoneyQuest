@@ -1,10 +1,6 @@
 import { useState, ChangeEvent } from 'react';
 import svg from './sendIcon.svg';
 
-// interface FormProps {
-//   setMessages: (prev: any[]) => any[]
-// }
-
 
 const SendIcon = (props:any) => {
   
@@ -40,7 +36,7 @@ const Form = ({setMessages}: any): JSX.Element => {
   };
 
   return (
-    <form className = 'flex items-center relative'>
+    <form className = 'flex bottom-0 absolute items-center relative '>
       {/* {message} */}
       <input
         type="text"
