@@ -189,11 +189,11 @@ const Trees3: React.FC<props> = ( {boundary, count} ) => {
         return (
           
           <object3D key = {index}  position = {[tree.position.x, 0, tree.position.z]}>
-            <mesh scale = {[tree.box, tree.box, tree.box]}>
+            {/* <mesh scale = {[tree.box, tree.box, tree.box]}>
               <boxGeometry/>
               <meshBasicMaterial color = {'blue'} wireframe/>
             </mesh>
-            
+             */}
             <primitive object={model.scene.clone()} />
           </object3D>
         )

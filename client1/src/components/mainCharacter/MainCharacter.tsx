@@ -5,7 +5,7 @@ import { useAnimations , OrthographicCamera} from '@react-three/drei';
 import { useInput } from '../../hooks/useInput'
 import { useThree } from '@react-three/fiber'
 import { useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei/core';
+import { OrbitControls, PerspectiveCamera } from '@react-three/drei/core';
 import * as THREE from 'three'; 
 
 
@@ -40,6 +40,8 @@ const directionOffset = ({forward , backward, left, right} : { forward: any, bac
   return directionOffset;
 };
 
+
+
 const MainCharacter = () => {
   
   const {forward, backward, left, right, jump} = useInput();
@@ -48,6 +50,7 @@ const MainCharacter = () => {
   // console.log(model);
   const { actions } = useAnimations(model.animations, model.scene)
 
+  const cameraRef = useRef(null);
  
   // to scale the character 
   model.scene.scale.set(0.3, 0.3, 0.3 );
@@ -104,6 +107,42 @@ const MainCharacter = () => {
     
   }, [forward, backward, left, right, jump])
 
+  // const calculateOffset = ({ position, rotation }, x, y, z) => {
+  //   console.log(rotation);
+  //   const offSet = new THREE.Vector3(x, y, z);
+  //   offSet.applyQuaternion(rotation);
+  //   offSet.add(position);
+  //   return offSet;
+  // };
+
+  // let currentPosition = new THREE.Vector3();
+  // let currentLookAt = new THREE.Vector3();
+
+
+  // useFrame((state, delta) => {
+  //   let cameraPositionOffset = calculateOffset(
+  //     model.scene.position,
+  //     0,
+  //     2,
+  //     -4
+  //   );
+  //   let cameraFocusOffset = calculateOffset(entityManager.entities[0], 0, 1, 2);
+  //   const t = 1.0 - Math.pow(0.0025, delta);
+  //   currentPosition.lerp(cameraPositionOffset, t);
+
+  //   currentLookAt.copy(cameraFocusOffset, t);
+
+  //   cameraRef.current.position.copy(currentPosition);
+
+  //   state.camera.lookAt(currentLookAt);
+  //   state.camera.updateProjectionMatrix();
+
+  //   const d = time.update().getDelta();
+  //   entityManager.update(d);
+  // });
+
+
+
   useFrame((state, delta) => {
 
     if (currentAction.current  == 'Walk') {
@@ -151,8 +190,10 @@ const MainCharacter = () => {
     <>
       {/* <OrthographicCamera > */}
 
-        <OrbitControls ref={controlsRef} position={[0, 0, 5]} />
-        <primitive object={model.scene} rotation = {[0,0,0]} /> 
+        {/* <OrbitControls ref={controlsRef} position={[0, 0, 5]} /> */}
+        <OrbitControls />
+        <PerspectiveCamera ref={cameraRef} makeDefault position={[0, 5, 5]}/>
+        <primitive castShadow object={model.scene} rotation = {[0,0,0]} /> 
 
       {/* </OrthographicCamera> */}
 

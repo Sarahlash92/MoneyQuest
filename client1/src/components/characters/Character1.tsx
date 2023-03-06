@@ -15,7 +15,7 @@ const Character1 = (props:any) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const model = useLoader(GLTFLoader, 'models/Characters/Enemy_Large.gltf');
   const { actions } = useAnimations(model.animations, model.scene);
-  const [xPos, setXPos] = useState(5);
+  const [xPos, setXPos] = useState(1);
   const direction = useRef(1);
 
   // console.log(model);
@@ -60,7 +60,7 @@ const Character1 = (props:any) => {
     onClick={handleClick}
   >
 
-      <object3D rotation = {[0, -Math.PI , 0]} position = {[ 5, 0 , xPos ]} >
+      <object3D rotation = {[0, -Math.PI , 0]} position = {[ xPos, 0 , xPos ]} >
         <primitive object={model.scene} /> 
       </object3D>
     </mesh>

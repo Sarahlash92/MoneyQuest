@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Sarahlash92/MoneyQuest/issues"
   },
-  "homepage": "https://github.com/Sarahlash92/MoneyQuest#readme"
+  "homepage": "https://github.com/Sarahlash92/MoneyQuest#readme",
+  "dependencies": {
+    "yuka": "^0.7.8"
+  }
 }

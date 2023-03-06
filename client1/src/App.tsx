@@ -4,7 +4,6 @@ import ChatWindow from './components/chatWindow/chatWindow';
 import Scene from './components/scene/scene';
 
 
-
 function App() {
 
   const [showChat, setShowChat] = useState(false);
