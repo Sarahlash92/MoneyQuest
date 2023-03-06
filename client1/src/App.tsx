@@ -4,6 +4,7 @@ import ChatWindow from './components/chatWindow/chatWindow';
 import Scene from './components/scene/scene';
 
 
+
 function App() {
 
   const [showChat, setShowChat] = useState(false);
@@ -19,14 +20,18 @@ function App() {
 
   return (
 
-    <div className='container mx-auto'>
+    <div className='relative container mx-auto'>
 
       {/* <Scene />
       
       */}
-      <div className='flex'>
+      <div className='absolute w-full h-height z-10'>
       <Scene />
+      </div>
+      <div className='absolute w-full h-height right-0 top-0 z-20 opacity-90'>
       <ChatWindow />
+      
+      {/* <ChatWindow /> */}
       </div>
       {/* {showChat && (
       <ChatWindow closeChatWindow={closeChatWindow} />
@@ -37,4 +42,4 @@ function App() {
 }
 
 export default App;
-     
+    

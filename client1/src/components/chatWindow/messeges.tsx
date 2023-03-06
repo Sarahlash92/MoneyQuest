@@ -31,7 +31,7 @@ const Message:React.FC<MessageProps>= ({msg, type}) => {
 const Messages:React.FC<MessagesProps> = ({messages}) => {
 
 return (
-  <div className ='w-[600px] max-h-96 space-y-4 overflow-y-scroll scrollbar-hide'> 
+  <div className =' max-h-96 space-y-4 overflow-y-scroll scrollbar-hide'> 
     {messages.length ? messages.map((message, index )=>(
       <Message key={index} {...message} /> 
     ) ) : 
