@@ -14,8 +14,26 @@ const Form = ({setMessages}: any): JSX.Element => {
 
   const [message, setMessage] = useState<string>('');
 
+  const messageResponse = async () => {
+    const response = await fetch('http://localhost:5000/message', {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({ message })
+    })
+    const data = await response.json();
 
-  const sendMessage = (e:any) => {
+    // console.log(data);
+    setMessages((prev:any[]) => [
+      ...prev, {
+        msg: data.message,
+        type: 'bot'
+      }
+    ])
+  }
+
+  const sendMessage = async(e:any) => {
 
     e.preventDefault();
 
@@ -28,6 +46,8 @@ const Form = ({setMessages}: any): JSX.Element => {
       type: 'user'
     }
   ])
+  setMessage('');
+  await messageResponse();
 }
 
 
