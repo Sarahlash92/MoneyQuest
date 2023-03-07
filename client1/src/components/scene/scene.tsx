@@ -9,6 +9,8 @@ import Rocks from './Rocks_1';
 import Character1 from '../characters/Character1';
 import Character3 from '../characters/Character3';
 import Character2 from '../characters/Character2';
+import Character4 from '../characters/Character4';
+import Character5 from '../characters/Character5';
 import SkyBox from './skybox';
 import Plane from './plane';
 import { Physics } from '@react-three/cannon'
@@ -53,6 +55,8 @@ function Scene(props:any) {
   {/* <MainCharacter /> */}
   <Player position ={[0,3,0]}/>
   <Character1 openChatWindow={props.openChatWindow}/>
+  <Character5 openChatWindow={props.openChatWindow}/>
+  <Character4 openChatWindow={props.openChatWindow}/>
   <Character2 />
   <Character3 openChatWindow={props.openChatWindow}/>
   <ambientLight intensity={0.5} />
