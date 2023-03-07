@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useInput = () => {
+const useInput = () => {
 
   const [input, setInput] = useState({
     
@@ -17,12 +17,13 @@ export const useInput = () => {
     KeyS: 'backward',
     KeyA: 'left',
     KeyD: 'right',
-    Space: 'jump'
+    keyQ: 'jump'
   };
 
   const findKey = (key: string ) => keys[key];
 
 useEffect(() => {
+
 
   const handleKeyDown = (e:any) => {
     setInput( (m) => ({...m, [findKey(e.code)]: true }));
@@ -39,3 +40,5 @@ useEffect(() => {
 
   return input; 
 }
+
+export default useInput;

@@ -14,8 +14,8 @@ const Plane = (props:any) => {
   return (
 
       <mesh rotation={[-Math.PI/2, 0, 0]} receiveShadow>
-        <planeBufferGeometry attach='geometry' args= {[100, 100]}/>
-        <meshBasicMaterial color={'white'} attach='material'  />
+        <planeBufferGeometry args= {[100, 100]}/>
+        <meshBasicMaterial opacity={0} transparent={true}  />
       </mesh>
   )
 
