@@ -5,17 +5,9 @@ import { useState } from 'react';
 
 
 const scene_array = [
-  '/models/Environment/Planet_1.gltf',
-  '/models/Environment/Planet_2.gltf',
-  '/models/Environment/Planet_3.gltf',
-  '/models/Environment/Planet_4.gltf',
-  '/models/Environment/Planet_5.gltf',
-  '/models/Environment/Planet_6.gltf',
-  '/models/Environment/Planet_7.gltf',
-  '/models/Environment/Planet_8.gltf',
-  '/models/Environment/Planet_9.gltf',
-  '/models/Environment/Planet_10.gltf',
-  '/models/Environment/Planet_11.gltf']
+  '/models/Environment/Grass_1.gltf',
+  '/models/Environment/Grass_2.gltf',
+  '/models/Environment/Grass_3.gltf']
 
 type treeType = {
 
@@ -29,7 +21,7 @@ type props = {
   count: number
 };
 
-const Rocks: React.FC<props> = ( {boundary, count} ) => {
+const Rocks2: React.FC<props> = ( {boundary, count} ) => {
   
   const link = useMemo(() => {
     const index = Math.floor(Math.random() * scene_array.length);
@@ -147,8 +139,11 @@ const Rocks: React.FC<props> = ( {boundary, count} ) => {
       {Rocks.map((tree, index) => {
         return (
           
-          <object3D key = {index}  position = {[tree.position.x, 10, tree.position.z]}>
-
+          <object3D key = {index}  position = {[tree.position.x, 0, tree.position.z]}>
+            {/* <mesh scale = {[tree.box, tree.box, tree.box]}>
+              <boxGeometry/>
+              <meshBasicMaterial color = {'blue'} wireframe/>
+            </mesh> */}
             <primitive object={model.scene.clone()} />
           </object3D>
         )
@@ -158,4 +153,4 @@ const Rocks: React.FC<props> = ( {boundary, count} ) => {
   );
 };
 
-export default Rocks;
+export default Rocks2;

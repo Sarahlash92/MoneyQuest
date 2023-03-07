@@ -6,6 +6,10 @@ import Trees2 from './Tree_2';
 import Trees3 from './Tree_3';
 import Trees4 from './Tree_4';
 import Rocks from './Rocks_1';
+import Rocks2 from './Rocks_2';
+import Rocks3 from './Rocks_3';
+import Rocks4 from './Rocks_4';
+// import Rocks5 from './Rocks_5';
 import Character1 from '../characters/Character1';
 import Character3 from '../characters/Character3';
 import Character2 from '../characters/Character2';
@@ -48,9 +52,22 @@ function Scene(props:any) {
   <Physics gravity={[0, -30, 0]}>
   <Trees boundary = {200} count= {40}/>
   <Trees2 boundary = {200} count= {80}/>
+  <Trees2 boundary = {200} count= {80}/>
+  <Trees3 boundary = {200} count= {60}/>
+  {/* <Trees4 boundary = {200} count= {84}/> */}
   <Trees3 boundary = {200} count= {60}/>
   <Trees4 boundary = {200} count= {84}/>
+  <Rocks boundary = {200} count= {8}/>
+  <Rocks boundary = {200} count= {8}/>
+  <Rocks2 boundary = {100} count= {80}/>
   <Rocks boundary = {100} count= {8}/>
+  <Rocks2 boundary = {100} count= {80}/>
+  {/* <Rocks2 boundary = {100} count= {80}/> */}
+  <Rocks2 boundary = {100} count= {80}/>
+  <Rocks3 boundary = {200} count= {6}/>
+  <Rocks4 boundary = {200} count= {10}/>
+  {/* <Rocks5 boundary = {100} count= {6}/> */}
+  
   {/* <SceneTwo /> */}
   {/* <MainCharacter /> */}
   <Player position ={[0,3,0]}/>

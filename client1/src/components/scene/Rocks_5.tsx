@@ -5,17 +5,9 @@ import { useState } from 'react';
 
 
 const scene_array = [
-  '/models/Environment/Planet_1.gltf',
-  '/models/Environment/Planet_2.gltf',
-  '/models/Environment/Planet_3.gltf',
-  '/models/Environment/Planet_4.gltf',
-  '/models/Environment/Planet_5.gltf',
-  '/models/Environment/Planet_6.gltf',
-  '/models/Environment/Planet_7.gltf',
-  '/models/Environment/Planet_8.gltf',
-  '/models/Environment/Planet_9.gltf',
-  '/models/Environment/Planet_10.gltf',
-  '/models/Environment/Planet_11.gltf']
+   '/models/Environment/Base_Large.gltf',
+  '/models/Environment/Building_L.gltf',
+]
 
 type treeType = {
 
@@ -29,31 +21,19 @@ type props = {
   count: number
 };
 
-const Rocks: React.FC<props> = ( {boundary, count} ) => {
+const Rocks5: React.FC<props> = ( {boundary, count} ) => {
   
   const link = useMemo(() => {
     const index = Math.floor(Math.random() * scene_array.length);
     return scene_array[index];
   }, []);
 
-  // const model = useLoader(GLTFLoader, '/models/Environment/Tree_Blob_1.gltf');
-  
-  //trying to generate different models 
 
   const model = useLoader(GLTFLoader, link);
   
   const [Rocks, setRocks] = useState<treeType[]>([]);
 
 
-  // model.scene.traverse((object) => {
-  //   if(object.isMesh) {
-  //     object.castShadow = true;
-  //   }
-  // });
-
-  //generate random positions for Rocks 
-
-  //copied function to assure there is no overlap 
 
   const boxInstersect = (
     minAx: number,
@@ -147,8 +127,11 @@ const Rocks: React.FC<props> = ( {boundary, count} ) => {
       {Rocks.map((tree, index) => {
         return (
           
-          <object3D key = {index}  position = {[tree.position.x, 10, tree.position.z]}>
-
+          <object3D key = {index}  position = {[tree.position.x, 0, tree.position.z]}>
+            {/* <mesh scale = {[tree.box, tree.box, tree.box]}>
+              <boxGeometry/>
+              <meshBasicMaterial color = {'blue'} wireframe/>
+            </mesh> */}
             <primitive object={model.scene.clone()} />
           </object3D>
         )
@@ -158,4 +141,4 @@ const Rocks: React.FC<props> = ( {boundary, count} ) => {
   );
 };
 
-export default Rocks;
+export default Rocks5;

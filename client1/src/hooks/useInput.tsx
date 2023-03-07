@@ -17,7 +17,7 @@ const useInput = () => {
     KeyS: 'backward',
     KeyA: 'left',
     KeyD: 'right',
-    keyQ: 'jump'
+    KeyQ: 'jump'
   };
 
   const findKey = (key: string ) => keys[key];

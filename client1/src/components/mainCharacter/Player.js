@@ -6,7 +6,7 @@ import useInput from '../../hooks/useInput';
 import { Vector3 } from 'three';
 import { OrbitControls } from '@react-three/drei';
 
-const SPEED = 6;
+const SPEED = 10;
 
 export const Player = (props) => {
   const { camera } = useThree();
